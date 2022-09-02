@@ -769,8 +769,6 @@ void hash_octa(const uint8_t* data, size_t size, uint8_t* output, cryptonight_ct
     }
 }
 
-template void hash_octa<11>(const uint8_t* data, size_t size, uint8_t* output, cryptonight_ctx** ctx, HelperThread* helper, bool verbose);
-template void hash_octa<15>(const uint8_t* data, size_t size, uint8_t* output, cryptonight_ctx** ctx, HelperThread* helper, bool verbose);
 #else // XMRIG_FEATURE_HWLOC
 
 
@@ -778,7 +776,7 @@ void benchmark() {}
 HelperThread* create_helper_thread(int64_t, int, const std::vector<int64_t>&) { return nullptr; }
 void destroy_helper_thread(HelperThread*) {}
 
-
+template <size_t CORE_ALGO_LIMIT>
 void hash_octa(const uint8_t* data, size_t size, uint8_t* output, cryptonight_ctx** ctx, HelperThread*, bool verbose)
 {
     constexpr uint32_t N = 8;
@@ -791,7 +789,7 @@ void hash_octa(const uint8_t* data, size_t size, uint8_t* output, cryptonight_ct
     // PrevBlockHash (GhostRider's seed) is stored in bytes [4; 36)
     const uint8_t* seed = data + 4;
 
-    uint32_t core_indices[15];
+    uint32_t core_indices[CORE_ALGO_LIMIT];
     select_indices(core_indices, seed);
 
     uint32_t cn_indices[6];
@@ -867,6 +865,8 @@ void hash_octa(const uint8_t* data, size_t size, uint8_t* output, cryptonight_ct
 
 #endif // XMRIG_FEATURE_HWLOC
 
+template void hash_octa<11>(const uint8_t* data, size_t size, uint8_t* output, cryptonight_ctx** ctx, HelperThread* helper, bool verbose);
+template void hash_octa<15>(const uint8_t* data, size_t size, uint8_t* output, cryptonight_ctx** ctx, HelperThread* helper, bool verbose);
 
 } // namespace ghostrider
 
