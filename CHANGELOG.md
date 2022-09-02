@@ -1,3 +1,6 @@
+# v6.18.1
+- [#3092](https://github.com/xmrig/xmrig/pull/3092) Integrated VKAX Ghostrider variant Mike (`mike`)
+  - RandomX Blake2 AVX2 version +0.1% speedup on AMD Zen2/Zen3 and Intel CPUs which support AVX2.
 # v6.18.0
 - [#3067](https://github.com/xmrig/xmrig/pull/3067) Monero v15 network upgrade support and more house keeping.
   - Removed deprecated AstroBWTv1 and v2.

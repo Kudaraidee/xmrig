@@ -12,9 +12,10 @@ Option `coin` useful for pools without [algorithm negotiation](https://xmrig.com
 
 | Name | Memory | Version | Description | Notes |
 |------|--------|---------|-------------|-------|
+| `ghostrider/mike` | 2 MB | 6.18.1 | Ghostrider variant Mike (vkax). | CPU only
 | `kawpow` | - | 6.0.0+ | KawPow (Ravencoin) | GPU only |
 | `rx/keva` | 1 MB | 5.9.0+ | RandomKEVA (RandomX variant for Keva). |  |
-| `astrobwt` | 20 MB | 5.8.0+ | AstroBWT (Dero). |  |
+| `astrobwt` | 20 MB | 5.8.0+ | AstroBWT (Dero). |  removed|
 | `cn-pico/tlo` | 256 KB | 5.5.0+ | CryptoNight-Pico (Talleo). |  |
 | `rx/sfx` | 2 MB | 5.4.0+ | RandomSFX (RandomX variant for Safex). |  |
 | `rx/arq` | 256 KB | 4.3.0+ | RandomARQ (RandomX variant for ArQmA). |  |
