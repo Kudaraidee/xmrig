@@ -129,6 +129,8 @@ set(SOURCES_CRYPTO
     src/crypto/common/MemoryPool.cpp
     src/crypto/common/Nonce.cpp
     src/crypto/common/VirtualMemory.cpp
+    src/crypto/flex/flex.cpp
+    src/crypto/flex/flex_keccak.c
    )
 
 if (CMAKE_C_COMPILER_ID MATCHES GNU)

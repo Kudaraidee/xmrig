@@ -48,6 +48,7 @@ size_t inline generate<Algorithm::CN>(Threads<CpuThreads> &threads, uint32_t lim
     size_t count = 0;
 
     count += generate(Algorithm::kCN, threads, Algorithm::CN_1, limit);
+    count += generate(Algorithm::kCN_2, threads, Algorithm::CN_2, limit);
 
     if (!threads.isExist(Algorithm::CN_0)) {
         threads.disable(Algorithm::CN_0);
@@ -157,7 +158,10 @@ size_t inline generate<Algorithm::ARGON2>(Threads<CpuThreads> &threads, uint32_t
 template<>
 size_t inline generate<Algorithm::GHOSTRIDER>(Threads<CpuThreads>& threads, uint32_t limit)
 {
-    return generate(Algorithm::kGHOSTRIDER, threads, Algorithm::GHOSTRIDER_RTM, limit);
+    size_t count = 0;
+    count += threads.move(Algorithm::kGHOSTRIDER, std::move(Cpu::info()->threads(Algorithm::GHOSTRIDER_RTM, limit)));
+    count += threads.move(Algorithm::kFLEX, std::move(Cpu::info()->threads(Algorithm::FLEX_KCN, limit)));
+    return count;
 }
 #endif
 
