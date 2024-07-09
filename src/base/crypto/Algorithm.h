@@ -72,6 +72,7 @@ public:
         CN_GR_4         = 0x63120104,   // "cn/turtle"        GhostRider
         CN_GR_5         = 0x63120105,   // "cn/turtle-lite"   GhostRider
         GHOSTRIDER_RTM  = 0x6c150000,   // "ghostrider"       GhostRider
+        FLEX_KCN        = 0x6c150001,   // "flex"             Flex
         RX_0            = 0x72151200,   // "rx/0"             RandomX (reference configuration).
         RX_WOW          = 0x72141177,   // "rx/wow"           RandomWOW (Wownero).
         RX_ARQ          = 0x72121061,   // "rx/arq"           RandomARQ (Arqma).
@@ -161,6 +162,8 @@ public:
 #   ifdef XMRIG_ALGO_GHOSTRIDER
     static const char* kGHOSTRIDER;
     static const char* kGHOSTRIDER_RTM;
+    static const char* kFLEX;
+    static const char* kFLEX_KCN;
 #   endif
 
     inline Algorithm() = default;
